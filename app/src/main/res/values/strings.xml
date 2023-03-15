@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Restaurant</string>
+    <string name="todo">TODO</string>
+    <string name="sucursal_1"><b>Suc. 1:</b> Zaragoza #213 Zona Centro, Calvillo Ags.</string>
+    <string name="sucursal_2"><b>Suc. 2:</b> Blvd. Rodolfo Landeros #150, Calvillo, Ags.</string>
+    <string name="sucursal_3"><b>Suc. 3:</b> Av. Aguascalientes Sur #436 Local 9-A, Col. España, Ags.</string>
+    <string name="telefono_1">495 956 1635</string>
+    <string name="telefono_2">495 956 7228</string>
+    <string name="telefono_3">449 320 6501</string>
+    <string name="llamar">LLAMAR</string>
+    <string name="Seleccionar_Pozole">Por favor, seleccione su pozole.</string>
+    <string name="Rojo">Pozole Rojo</string>
+    <string name="Verde">Pozole Verde</string>
+    <string name="Tamanio">Por favor, seleccione su tamaño.</string>
+    <string name="Chico">Chico</string>
+    <string name="Mediano">Mediano</string>
+    <string name="Grande">Grande</string>
+    <string name="Ingredientes">Seleccione sus Ingredientes Adicionales</string>
+    <string name="Cebolla">Cebolla</string>
+    <string name="Repollo">Repollo</string>
+    <string name="Chile">Chile</string>
+    <string name="Maiz">Maiz</string>
+    <string name="Limon">Limon</string>
+    <string name="Tostadas">Tostadas</string>
+    <string name="Oregano">Oregano</string>
+    <string name="Rabanos">Rabanos</string>
+    <string name="Ordenar">Ordenar</string>
+    <string name="Cantidad">Numero de Ordenes:</string>
+</resources>
