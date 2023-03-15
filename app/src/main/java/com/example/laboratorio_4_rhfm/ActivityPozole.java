@@ -3,27 +3,30 @@ package com.example.laboratorio_4_rhfm;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 
 public class ActivityPozole extends AppCompatActivity {
 
     RadioGroup tamanio;
     RadioGroup pozole;
-    RadioButton repollo;
-    RadioButton cebolla;
-    RadioButton maiz;
-    RadioButton limon;
-    RadioButton tostadas;
-    RadioButton oregano;
-    RadioButton rabanos;
-
+    CheckBox repollo;
+    CheckBox cebolla;
+    CheckBox maiz;
+    CheckBox limon;
+    CheckBox tostadas;
+    CheckBox oregano;
+    CheckBox rabanos;
     RadioButton tamanoPozole;
     RadioButton pozoleTipo;
-    EditText ordenes;
+    Spinner spinner;
+    ArrayAdapter<CharSequence> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +34,17 @@ public class ActivityPozole extends AppCompatActivity {
         setContentView(R.layout.activity_pozole);
         tamanio = findViewById(R.id.radioGroupTamaño);
         pozole = findViewById(R.id.radioGroupPozole);
-        repollo = findViewById(R.id.radioRepollo);
-        cebolla = findViewById(R.id.radioCebolla);
-        maiz = findViewById(R.id.radioMaiz);
-        limon = findViewById(R.id.radioLimon);
-        tostadas = findViewById(R.id.radioTostadas);
-        oregano = findViewById(R.id.radioOregano);
-        rabanos = findViewById(R.id.radioRabano);
-        ordenes = findViewById(R.id.numeroOrdenes);
+        repollo = findViewById(R.id.checkBoxRepollo);
+        cebolla = findViewById(R.id.checkBoxCebolla);
+        maiz = findViewById(R.id.checkBoxMaiz);
+        limon = findViewById(R.id.checkBoxLimon);
+        tostadas = findViewById(R.id.checkBoxTostadas);
+        oregano = findViewById(R.id.checkBoxOregano);
+        rabanos = findViewById(R.id.checkBoxRabano);
+        spinner = findViewById(R.id.spinnerOrden);
+        adapter  = ArrayAdapter.createFromResource(this, R.array.numeros_Orden, android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
     }
 
     public void OrdenarPedido(View view) {
@@ -47,7 +53,7 @@ public class ActivityPozole extends AppCompatActivity {
 
         String tamanioPozole = String.valueOf(tamanoPozole.getText());
         String seleccion = String.valueOf(pozoleTipo.getText());
-        String orden = String.valueOf(ordenes.getText());
+        String orden = (String)spinner.getSelectedItem();
 
         String mensajePredefinido= "Orden: "+orden+" "+seleccion+" "+tamanioPozole;
         String extras = "\n\nINGREDIENTES EXTRAS:\n";
@@ -75,11 +81,10 @@ public class ActivityPozole extends AppCompatActivity {
         }
 
 
+        String whats = "whatsapp://send?phone=14494538180";
         String mensajeFinal = mensajePredefinido + extras;
-
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_TEXT, mensajeFinal);
-        intent.setType("text/plain");
+        Uri uri = Uri.parse(whats+"&text="+mensajeFinal);
+        Intent intent = new Intent(Intent.ACTION_VIEW,uri);
         intent.setPackage("com.whatsapp");
         startActivity(intent);
     }

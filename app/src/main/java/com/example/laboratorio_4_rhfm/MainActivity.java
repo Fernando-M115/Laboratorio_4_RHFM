@@ -13,12 +13,15 @@ public class MainActivity extends AppCompatActivity {
 
     RadioGroup botones;
     RadioButton radioButton;
+    RadioButton telefono;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         botones = findViewById(R.id.radioGroup);
+        telefono = findViewById(R.id.radioTelefono1);
+        telefono.setChecked(true);
     }
 
     public void Llamar(View view) {

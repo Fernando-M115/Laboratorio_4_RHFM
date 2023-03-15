@@ -116,7 +116,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline2">
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioTelefono1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/telefono_1"
